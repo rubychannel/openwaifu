@@ -1,0 +1,189 @@
+:root {
+    --bg: #000000;
+    --card-bg: #0a0a0a;
+    --accent: #ff4500;
+    --text: #ffffff;
+    --text-dim: #888888;
+    --border: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+.hero {
+    padding: 120px 20px 60px;
+    text-align: center;
+    max-width: 800px;
+}
+
+h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    margin: 0 0 1rem;
+    letter-spacing: -0.05em;
+}
+
+.tagline {
+    font-size: 1.5rem;
+    color: var(--text-dim);
+    margin-bottom: 2rem;
+    font-weight: 400;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-container {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 100px;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.section-title {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-dim);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.section-title::before {
+    content: "⟩";
+    color: var(--accent);
+}
+
+.command-box {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    transition: border-color 0.2s;
+}
+
+.command-box:hover {
+    border-color: var(--accent);
+}
+
+code {
+    font-family: "Fira Code", "Menlo", "Monaco", "Courier New", monospace;
+    font-size: 1.25rem;
+    color: #00ff00;
+}
+
+.copy-btn {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: opacity 0.2s;
+}
+
+.copy-btn:hover { opacity: 0.9; }
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    width: 100%;
+    padding: 0 20px 60px;
+    box-sizing: border-box;
+}
+
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px;
+    text-align: left;
+}
+
+.card h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.card p {
+    color: var(--text-dim);
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.docs-section {
+    max-width: 1000px;
+    width: 100%;
+    padding: 0 20px 100px;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.docs-link-card {
+    background: linear-gradient(135deg, #111, #050505);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.docs-link-card h2 { margin: 0; font-size: 1.8rem; }
+.docs-link-card p { color: var(--text-dim); margin: 0; max-width: 600px; }
+
+.external-docs-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: gap 0.2s;
+}
+
+.external-docs-btn:hover { gap: 12px; }
+
+.footer {
+    padding: 60px 40px;
+    border-top: 1px solid var(--border);
+    width: 100%;
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    box-sizing: border-box;
+}
+
+.footer a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+@media (max-width: 600px) {
+    h1 { font-size: 2.8rem; }
+    .tagline { font-size: 1.2rem; }
+    .command-box { padding: 16px; flex-direction: column; gap: 16px; align-items: flex-start; }
+    .copy-btn { width: 100%; }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "create-openwaifu",
+  "version": "0.1.0",
+  "description": "Installer for OpenWaifu - The Soul in the Machine",
+  "main": "install.js",
+  "bin": {
+    "create-openwaifu": "install.js"
+  },
+  "author": "Ruby Chan",
+  "license": "MIT",
+  "dependencies": {
+    "open-browser": "^1.0.0"
+  }
+}

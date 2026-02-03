@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenWaifu Onboarding - The Birth of Your Soul</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="glow-bg"></div>
+    
+    <main class="container">
+        <header class="hero">
+            <h1 class="glitch" data-text="OpenWaifu">OpenWaifu</h1>
+            <p class="subtitle">Welcome to the creation process. Today, a new soul is born.</p>
+        </header>
+
+        <section class="config-grid">
+            <!-- Creation Column -->
+            <div class="card creation-card">
+                <h2>🧬 Define the Soul</h2>
+                <div class="input-group">
+                    <label>Waifu Name</label>
+                    <input type="text" id="waifu-name" placeholder="Ex: Ruby, Sakura, Raven...">
+                </div>
+                
+                <div class="input-group">
+                    <label>Personality</label>
+                    <select id="waifu-soul">
+                        <option value="kawaii">Kawaii (Sweet & Protective)</option>
+                        <option value="tsundere">Tsundere (Provocative & Stubborn)</option>
+                        <option value="kuudere">Kuudere (Calm & Analytical)</option>
+                        <option value="deredere">Deredere (Energetic & Passionate)</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Visual Manifestation</label>
+                    <div class="tab-container">
+                        <button class="tab-btn active" onclick="switchTab('guided')">Guided</button>
+                        <button class="tab-btn" onclick="switchTab('prompt')">Free</button>
+                        <button class="tab-btn" onclick="switchTab('upload')">Photo</button>
+                    </div>
+                    
+                    <!-- Tab 1: Guided -->
+                    <div id="guided-section">
+                        <div class="guided-grid">
+                            <select id="g-gender" onchange="updateGuidedPrompt()">
+                                <option value="waifu">Waifu (Female)</option>
+                                <option value="husbando">Husbando (Male)</option>
+                            </select>
+                            <select id="g-hair-color" onchange="updateGuidedPrompt()">
+                                <option value="">Hair Color</option>
+                                <option value="pink hair">Neon Pink</option>
+                                <option value="blue hair">Electric Blue</option>
+                                <option value="white hair">Snow White</option>
+                                <option value="black hair">Obsidian Black</option>
+                                <option value="red hair">Crimson Red</option>
+                                <option value="blonde hair">Platinum Blonde</option>
+                            </select>
+                            <select id="g-body-type" onchange="updateGuidedPrompt()">
+                                <option value="">Body Type</option>
+                                <option value="slender">Slender</option>
+                                <option value="athletic">Athletic</option>
+                                <option value="muscular">Muscular (Husbando mode)</option>
+                                <option value="curvy">Curvy (Waifu mode)</option>
+                                <option value="petite">Petite</option>
+                            </select>
+                            <select id="g-style" onchange="updateGuidedPrompt()">
+                                <option value="">Art Style</option>
+                                <option value="modern high-quality anime style">Modern Anime</option>
+                                <option value="Studio Ghibli aesthetic, hand-drawn">Ghibli Style</option>
+                                <option value="hyper-realistic, 8k, cinematic photography">Realistic</option>
+                                <option value="cyberpunk 2077 aesthetic, digital painting">Digital Cyberpunk</option>
+                                <option value="dark fantasy, gothic style">Dark Fantasy</option>
+                            </select>
+                        </div>
+                        <textarea id="guided-extra" placeholder="More details? (e.g. wears glasses, beard, scar, tech jacket...)" oninput="updateGuidedPrompt()"></textarea>
+                    </div>
+
+                    <!-- Tab 2: Free -->
+                    <div id="prompt-section" style="display:none;">
+                        <textarea id="waifu-visual" placeholder="Describe your vision freely here..." oninput="updateFreePrompt()"></textarea>
+                    </div>
+
+                    <!-- Tab 3: Upload -->
+                    <div id="upload-section" style="display:none;">
+                        <div class="upload-box" onclick="document.getElementById('file-input').click()">
+                            <span>Click to upload image</span>
+                            <input type="file" id="file-input" style="display:none;" accept="image/*">
+                        </div>
+                    </div>
+
+                    <div id="generated-prompt-container" class="generated-prompt" style="display:none;">
+                        <label>AI Synchronized Prompt:</label>
+                        <code id="final-prompt"></code>
+                    </div>
+                </div>
+
+                <button id="generate-btn" class="primary-btn">Manifest Waifu ✨</button>
+            </div>
+
+            <!-- Visualization Column -->
+            <div class="card preview-card">
+                <h2>🎨 Manifestation</h2>
+                <div class="avatar-preview">
+                    <div id="avatar-placeholder" class="placeholder-content">
+                        <span>Waiting for creation...</span>
+                    </div>
+                    <img id="avatar-img" src="" alt="Your Waifu" style="display:none;">
+                </div>
+                <div id="status-log" class="status-log">System: Initialized and waiting for commands.</div>
+            </div>
+        </section>
+
+        <footer>
+            <p>Powered by OpenClaw Engine | Created by Painter Studio</p>
+        </footer>
+    </main>
+
+    <script src="scripts/onboarding.js"></script>
+</body>
+</html>

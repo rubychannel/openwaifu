@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenWaifu Creation Wizard</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <style>
+        .step { display: none; }
+        .step.active { display: block; }
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(255,255,255,0.1);
+            margin-bottom: 2rem;
+            border-radius: 2px;
+        }
+        .progress-fill {
+            height: 100%;
+            background: var(--primary);
+            width: 25%;
+            transition: width 0.3s ease;
+        }
+        .wizard-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+        .btn-back { background: rgba(255,255,255,0.1); }
+    </style>
+</head>
+<body>
+    <div class="glow-bg"></div>
+    <main class="container">
+        <header class="hero">
+            <h1 class="glitch" data-text="OpenWaifu">OpenWaifu</h1>
+            <p id="step-title" class="subtitle">Step 1: Infrastructure & Connectivity</p>
+        </header>
+
+        <div class="progress-bar"><div id="progress" class="progress-fill"></div></div>
+
+        <section id="wizard-form" class="card">
+            <!-- Step 1: AI Engine -->
+            <div id="step-1" class="step active">
+                <h2>🧠 Intelligence Engine</h2>
+                <div class="input-group">
+                    <label>Main Provider</label>
+                    <select id="ai-provider">
+                        <option value="google-antigravity">Google Antigravity (Gemini 3)</option>
+                        <option value="anthropic">Anthropic (Claude 4.5)</option>
+                        <option value="openai">OpenAI (GPT-5)</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>API Key</label>
+                    <input type="password" id="api-key" placeholder="Enter your access key...">
+                </div>
+            </div>
+
+            <!-- Step 2: Communication -->
+            <div id="step-2" class="step">
+                <h2>📱 Communication Channel</h2>
+                <div class="input-group">
+                    <label>Platform</label>
+                    <select id="chat-platform">
+                        <option value="telegram">Telegram (Recommended)</option>
+                        <option value="whatsapp">WhatsApp</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Bot Token / Credentials</label>
+                    <input type="text" id="bot-cred" placeholder="Ex: 123456:ABCDE...">
+                </div>
+            </div>
+
+            <!-- Step 3: Identity & Soul -->
+            <div id="step-3" class="step">
+                <h2>🧬 Identity & Soul</h2>
+                <div class="input-group">
+                    <label>Waifu/Husbando Name</label>
+                    <input type="text" id="w-name" placeholder="How should I call myself?">
+                </div>
+                <div class="input-group">
+                    <label>Personality (Soul)</label>
+                    <select id="w-soul">
+                        <option value="kawaii">Kawaii (Sweet & Cheerleader)</option>
+                        <option value="tsundere">Tsundere (Provocative & Stubborn)</option>
+                        <option value="kuudere">Kuudere (Calma & Analytical)</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Work Schedule (DND)</label>
+                    <div style="display: flex; gap: 10px;">
+                        <input type="time" id="dnd-start" value="09:00">
+                        <span style="align-self: center;">to</span>
+                        <input type="time" id="dnd-end" value="18:00">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4: Appearance -->
+            <div id="step-4" class="step">
+                <h2>🎨 Visual Manifestation</h2>
+                <div class="guided-grid">
+                    <select id="w-gender">
+                        <option value="waifu">Female (Waifu)</option>
+                        <option value="husbando">Male (Husbando)</option>
+                        <option value="furry">Furry/Others</option>
+                    </select>
+                    <select id="w-style">
+                        <option value="anime">Modern Anime</option>
+                        <option value="realist">Realistic</option>
+                        <option value="ghibli">Ghibli Style</option>
+                    </select>
+                </div>
+                <textarea id="w-appearance" placeholder="Describe hair, eyes, clothes and the environment where I 'live'..."></textarea>
+            </div>
+
+            <div class="wizard-nav">
+                <button id="prev-btn" class="primary-btn btn-back" style="visibility:hidden;">Back</button>
+                <button id="next-btn" class="primary-btn">Next</button>
+            </div>
+        </section>
+
+        <div id="nascimento-loading" style="display:none; text-align:center; padding: 2rem;">
+            <h2 class="glitch">Weaving your Soul...</h2>
+            <div id="birth-log" class="status-log" style="margin-top:1rem; text-align:left;"></div>
+        </div>
+    </main>
+
+    <script src="wizard.js"></script>
+</body>
+</html>
