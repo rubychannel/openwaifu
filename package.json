@@ -1,6 +1,6 @@
 {
   "name": "create-openwaifu",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Installer for OpenWaifu - The Soul in the Machine",
   "bin": {
     "create-openwaifu": "install.js"
